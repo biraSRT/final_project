@@ -7,6 +7,9 @@ import {
 
 import Header from "./Header";
 import LandingPage from "./LandingPage";
+import SignUp from "./SignUp";
+import Footer from "./Footer";
+import SignIn from "./SignIn";
 
 const App = () => {
   return (
@@ -17,8 +20,11 @@ const App = () => {
       <Routes>
 
         <Route path="/" element={ <LandingPage/> }/>
-      
+        <Route path="/signup" element={ <SignUp/> }/>
+        <Route path="/signin" element={ <SignIn/> }/>
       </Routes>
+
+      <Footer />
     </div>
   </Router>
   );
