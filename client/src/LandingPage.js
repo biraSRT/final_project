@@ -19,7 +19,19 @@ const Wrapper = styled.div`
     justify-content:center;
     align-items:center;
     width:100%;
+
     overflow: hidden;
+
+    /* @keyframes slideInLeft {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  animation: 1s ease-out 0s 1 slideInLeft; */
 `;
 
 const Image = styled.img`

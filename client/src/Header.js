@@ -56,7 +56,7 @@ const StyledLink = styled(Link)`
     font-size: 1rem;
 
     h2{
-        padding-left: 40px;
+        padding-left: 20px;
         transition-timing-function: ease-in;
         transition: 0.2s;
         &:hover{

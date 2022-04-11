@@ -4,6 +4,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import styled from "styled-components";
 
 import Header from "./Header";
 import LandingPage from "./LandingPage";
@@ -14,7 +15,7 @@ import SignIn from "./SignIn";
 const App = () => {
   return (
     <Router>
-    <div>
+    <Wrapper>
       <Header />
 
       <Routes>
@@ -25,9 +26,13 @@ const App = () => {
       </Routes>
 
       <Footer />
-    </div>
+    </Wrapper>
   </Router>
   );
 }
+
+const Wrapper = styled.div`
+ 
+`;
 
 export default App;
