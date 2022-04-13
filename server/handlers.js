@@ -16,7 +16,11 @@ const SteamAPI = require('steamapi');
 const steam = new SteamAPI(STEAM_KEY);
 
 
-const User = require('./models/user');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+
+require("dotenv").config({ path: "../.env" });
+const{ JWT_SECRET } = process.env;
 
 const getGame = async (req, res) => {
   // Connect to MongoDB database
@@ -62,11 +66,70 @@ const register = async (req, res) => {
   await client.connect();
   const db = client.db();
 
-  console.log(req.body);
-  res.status(200).json({ status: 200,data: req.body , message: "success" })
+  const {username, password: plainTextPassword, email } = req.body;
+
+  //form validation
+  if(!email.includes('@') || typeof email !== 'string'){
+    return res.json({status: 'error', error: 'invalid email' })
+  }
+
+  if(!username || typeof username !== 'string'){
+    return res.json({status: 'error', error: 'invalid username' })
+  }
+
+  if(!plainTextPassword || typeof plainTextPassword !== 'string'){
+    return res.json({status: 'error', error: 'invalid password' })
+  }
+
+  if(plainTextPassword.length < 7){
+    return res.json({status: 'error', error: 'password must be atleast 7 characters long' })
+  }
+
+
+  //password hash
+  const password = await bcrypt.hash(plainTextPassword, 10);
+
+  //try catch
+  try{
+    const response = await db.collection("users").insertOne({
+      username,
+      password,
+      email
+    })
+    console.log("User created successfully", response);
+    res.status(200).json({ status: 200, message: "success" })
+  } catch (error) {
+    console.log(error);
+    return res.json({status: 'error'})
+  }
+
+  
    
 
 };
-module.exports = { getGame, register };
+
+const login = async (req, res) => {
+  // Connect to MongoDB database
+  const client = new MongoClient(MONGO_URI, option);
+  await client.connect();
+  const db = client.db();
+
+  const { username, password } = req.body;
+  const user = await db.collection("users").findOne({username});
+
+  if(!user){
+    return res.json({status: 'error', error: 'Invalid username/password'})
+  }
+
+  if(await bcrypt.compare(password, user.password)){
+    // the username, password combination is successful
+
+    const token = jwt.sign({ id: user._id, username: user.username }, JWT_SECRET);
+    res.json({status: 'ok', data: token })
+  }
+  
+};
+
+module.exports = { getGame, register, login };
 
 

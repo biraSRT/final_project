@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 const {
     getGame,
     register,
+    login
 } = require("./handlers");
 
 const PORT = 8000;
@@ -22,6 +23,7 @@ app.use(bodyParser.json());
 //endpoints ex: "app.get("/example, example")"
 app.get("/game/:_id", getGame);
 app.post("/api/register", register);
+app.post("/api/login", login);
 
 
 app.listen(PORT, () => console.log('Listening on port: ', PORT));

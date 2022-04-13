@@ -18,7 +18,13 @@ const SignUp = () => {
             })
         }).then(res => res.json())
 
-        console.log(result);
+        //error alert
+        if(result.status === 200){
+           alert("account created successfully")
+        } else {
+            alert(result.error);
+        }
+  
     };
     return(
         <Wrapper>
