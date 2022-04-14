@@ -126,6 +126,8 @@ const login = async (req, res) => {
 
     const token = jwt.sign({ id: user._id, username: user.username }, JWT_SECRET);
     res.json({status: 'ok', data: token })
+  } else {
+    res.json({status: 'error', error: 'Invalid username/password'})
   }
   
 };

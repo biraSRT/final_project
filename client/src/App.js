@@ -7,7 +7,7 @@ import {
 import styled from "styled-components";
 
 import Header from "./Header";
-import LandingPage from "./LandingPage";
+import MainPage from "./MainPage";
 import SignUp from "./SignUp";
 import Footer from "./Footer";
 import SignIn from "./SignIn";
@@ -20,7 +20,7 @@ const App = () => {
 
       <Routes>
 
-        <Route path="/" element={ <LandingPage/> }/>
+        <Route path="/" element={ <MainPage/> }/>
         <Route path="/signup" element={ <SignUp/> }/>
         <Route path="/signin" element={ <SignIn/> }/>
       </Routes>

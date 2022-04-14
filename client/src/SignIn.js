@@ -1,6 +1,10 @@
 import styled from "styled-components";
+import { ApplicationContext } from "./ApplicationContext";
+import { useContext } from "react";
+import { useEffect } from "react";
 
 const SignIn = () => {
+   const { isLoggedIn, SetIsLoggedIn } = useContext(ApplicationContext);
     const logIn = async (ev) => {
       //authentication
       ev.preventDefault();
@@ -22,10 +26,21 @@ const SignIn = () => {
       if (result.status === "ok") {
         console.log('Got the token: ', result.data);
         alert("logged in");
+
+        //set a global state logged in to true and showcase steamFinder games
+        SetIsLoggedIn(true);
+        
+        //redirect to main page
+        window.location.href = "/";
+
+        
+        
       } else {
         alert(result.error);
       }
     };
+
+    
 
     return(
         <Wrapper>

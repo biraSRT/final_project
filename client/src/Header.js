@@ -1,23 +1,37 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { BiPen, BiDoorOpen } from "react-icons/bi";
+import { BiPen, BiDoorOpen, BiLogOut } from "react-icons/bi";
+import { ApplicationContext } from './ApplicationContext';
+import { useContext } from 'react';
 
 const Header = () => {
+    const { isLoggedIn, SetIsLoggedIn } = useContext(ApplicationContext);
+
+    const logOut = () => {
+        SetIsLoggedIn(false);
+    };
+
     return(
         <Wrapper>
             <TittleContainer to="/">
                 <Title1>Steam</Title1><Title2>Finder</Title2>
             </TittleContainer>
+            
+           {
+               !isLoggedIn ? <Container>
+               <StyledLink to="/signup">
+                   <h2><BiPen /> Sign Up</h2>
+               </StyledLink>
 
-            <Container>
-                <StyledLink to="/signup">
-                    <h2><BiPen /> Sign Up</h2>
-                </StyledLink>
+               <StyledLink to="signin">
+                   <h2><BiDoorOpen/> Sign In</h2>
+               </StyledLink>
+           </Container>
 
-                <StyledLink to="signin">
-                    <h2><BiDoorOpen/> Sign In</h2>
-                </StyledLink>
-            </Container>
+           :  <Container>
+               <span><BiLogOut size="2rem"/></span><button onClick={logOut}>Log Out</button>
+           </Container>
+           } 
         </Wrapper>
     )
 };
@@ -68,6 +82,27 @@ const StyledLink = styled(Link)`
 const Container = styled.div`
     display:flex;
     flex-direction: row;
+
+    button{
+        background: none;
+        color: white;
+        border: none;
+        padding: 0;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+        font-size: 1.5rem;
+
+        transition-timing-function: ease-in;
+        transition: 0.2s;
+        &:hover{
+            color: #2832c2;
+        }
+    }
+
+    span{
+        color: white;
+    }
 `;
 
 
