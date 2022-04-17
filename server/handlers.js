@@ -132,6 +132,55 @@ const login = async (req, res) => {
   
 };
 
-module.exports = { getGame, register, login };
+const getApps = async (req, res) => {
+  const client = new MongoClient(MONGO_URI, option);
+    await client.connect();
+    const db = client.db();
+  try {
+    
+
+    let applications = [];
+
+    await steam.getAppList().then((apps) => {
+      apps.forEach((app) => {
+        applications.push(app);
+      });
+    });
+    res
+      .status(200)
+      .json({ status: 200, data: applications, message: "success" });
+  } catch (err) {
+    res.status(500).json({ status: 500, message: "server error" });
+  } finally {
+    client.close();
+  }
+};
+
+const getGames = async (req, res) => {
+  // Connect to MongoDB database
+  const client = new MongoClient(MONGO_URI, option);
+  await client.connect();
+  const db = client.db();
+
+  try {
+    // Find item document based on it's _id
+    let newArray = [];
+
+    await steam.getFeaturedGames().then(games => {
+      newArray.push(games);
+   });
+  
+   res.status(200).json({ status: 200, data: newArray, message: "success" })
+     
+  } catch (err) {
+    res.status(500).json({ status: 500, message: "server error" });
+  } finally {
+    client.close();
+  }
+};
+
+
+
+module.exports = { getGame, register, login, getApps, getGames };
 
 

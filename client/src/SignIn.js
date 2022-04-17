@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import { ApplicationContext } from "./ApplicationContext";
 import { useContext } from "react";
-import { useEffect } from "react";
+
 
 const SignIn = () => {
-   const { isLoggedIn, SetIsLoggedIn } = useContext(ApplicationContext);
+   const { SetIsLoggedIn } = useContext(ApplicationContext);
     const logIn = async (ev) => {
       //authentication
       ev.preventDefault();

@@ -11,6 +11,7 @@ import MainPage from "./MainPage";
 import SignUp from "./SignUp";
 import Footer from "./Footer";
 import SignIn from "./SignIn";
+import FeaturedGamesLinux from "./FeaturedGamesLinux";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="/" element={ <MainPage/> }/>
         <Route path="/signup" element={ <SignUp/> }/>
         <Route path="/signin" element={ <SignIn/> }/>
+        <Route path="/linux" element={ <FeaturedGamesLinux/> }/>
       </Routes>
 
       <Footer />

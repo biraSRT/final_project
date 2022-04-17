@@ -8,7 +8,9 @@ const bodyParser = require('body-parser');
 const {
     getGame,
     register,
-    login
+    login,
+    getApps,
+    getGames,
 } = require("./handlers");
 
 const PORT = 8000;
@@ -22,6 +24,8 @@ app.use(bodyParser.json());
 
 //endpoints ex: "app.get("/example, example")"
 app.get("/game/:_id", getGame);
+app.get("/api/apps", getApps);
+app.get("/api/games", getGames);
 app.post("/api/register", register);
 app.post("/api/login", login);
 

@@ -1,15 +1,11 @@
 import { useContext } from "react";
 import { ApplicationContext } from "./ApplicationContext";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
-
-const SteamFinderPage = () => {
+const FeaturedGamesLinux =  () => {
     const { games } = useContext(ApplicationContext);
-
-    return((games !== null) ? <div>
-        <Link to="/linux" >Linux</Link>
-        {games.data[0].featured_win.map((app, index) => {
+    return((games !== null ) && <div>
+        {games.data[0].featured_linux.map((app, index) => {
             return (
               <Wrapper>
                 <Container key={index}>
@@ -22,8 +18,7 @@ const SteamFinderPage = () => {
               </Wrapper>
             );
         })}
-        </div> 
-        : <div>Loading...</div>
+        </div>
     )
 };
 
@@ -59,7 +54,4 @@ const Container = styled.div`
 `;
 
 
-
-
-
-export default SteamFinderPage;
+export default  FeaturedGamesLinux;

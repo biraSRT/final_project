@@ -20,6 +20,7 @@ const batchImport = async () => {
     await client.connect();
     const db = client.db();
     let applications = [];
+    let newArray = [];
 
    await steam.getAppList().then(apps => {
         
@@ -29,12 +30,20 @@ const batchImport = async () => {
         console.log(applications);
         console.log("import successful");
     });
+
+    await steam.getFeaturedGames().then(games => {
+        newArray.push(games);
+
+        console.log(newArray);
+        console.log("import successful");
+    });
     
 
     try {
         // Import items to "items" collection
         //await db.collection("applications").insertMany(applications);
-        console.log(applications);
+        //await db.collection("ftGames").insertMany(newArray);
+        console.log(newArray);
         
         
     } catch (err) {
