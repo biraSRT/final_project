@@ -31,7 +31,7 @@ const App = () => {
     <Router>
     <Wrapper>
       <Header />
-      {(isLoggedIn && (games !== null)) && <SecondHeader />}
+      {( isLoggedIn ) && <SecondHeader />}
       <Routes>
 
         <Route path="/" element={ <MainPage/> }/>
