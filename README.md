@@ -24,4 +24,18 @@ Users can also comment on or about the featured games of the day.
 ### cd server
 #### yarn dev:start
 
+# Technologies used
+
+### React
+
+### MongoDB
+
+### Express
+
+### Node.js
+
+### steam api
+
+
+
 
