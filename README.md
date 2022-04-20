@@ -7,7 +7,7 @@ users can also on the featured games and view them on steam.
 
 # Showcase
 
-[Imgur](https://imgur.com/GSjYUjD)
+[Imgur](https://imgur.com/GSjYUjD.png)
 
 
 # How to run client
