@@ -1,9 +1,11 @@
 # final_project
 
+## SteamFinder
+
 # Description
 
-steamfinder is app that users can use to view the daily featured steam games
-users can also on the featured games and view them on steam.
+steamfinder is an app that users can use to view the daily featured steam games.
+Users can also comment on or about the featured games of the day.
 
 # Showcase
 
@@ -12,10 +14,12 @@ users can also on the featured games and view them on steam.
 
 # How to run client
 
+
 ### cd client
 #### yarn start
 
 # How to run server
+
 
 ### cd server
 #### yarn dev:start
