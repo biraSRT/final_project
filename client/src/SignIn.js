@@ -4,7 +4,7 @@ import { useContext } from "react";
 
 
 const SignIn = () => {
-   const { SetIsLoggedIn } = useContext(ApplicationContext);
+   const { SetIsLoggedIn, setUsername } = useContext(ApplicationContext);
     const logIn = async (ev) => {
       //authentication
       ev.preventDefault();
@@ -27,7 +27,9 @@ const SignIn = () => {
         console.log('Got the token: ', result.data);
         alert("logged in");
 
+        console.log(username);
         //set a global state logged in to true and showcase steamFinder games
+        setUsername(username);
         SetIsLoggedIn(true);
         
         //redirect to main page

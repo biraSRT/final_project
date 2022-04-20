@@ -5,7 +5,7 @@ import { ApplicationContext } from './ApplicationContext';
 import { useContext } from 'react';
 
 const Header = () => {
-    const { isLoggedIn, SetIsLoggedIn } = useContext(ApplicationContext);
+    const { isLoggedIn, SetIsLoggedIn, username } = useContext(ApplicationContext);
 
     const logOut = () => {
         SetIsLoggedIn(false);
@@ -29,7 +29,8 @@ const Header = () => {
            </Container>
 
            :  <Container>
-               <span><BiLogOut size="2rem"/></span><button onClick={logOut}>Log Out</button>
+               <p>{`Logged In as ${username}`}</p>
+               <button onClick={logOut}><BiLogOut size="1.1rem"/>{`Log Out`}</button>
            </Container>
            } 
         </Wrapper>
@@ -82,6 +83,12 @@ const StyledLink = styled(Link)`
 const Container = styled.div`
     display:flex;
     flex-direction: row;
+    gap: 40px;
+
+    p{
+        color: white;
+        font-size: 1.5rem;
+    }
 
     button{
         background: none;

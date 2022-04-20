@@ -2,24 +2,27 @@ import { useContext } from "react";
 import { ApplicationContext } from "./ApplicationContext";
 import styled from "styled-components";
 
-const FeaturedGamesLinux =  () => {
-    const { games } = useContext(ApplicationContext);
-    return((games !== null ) && <Main>
-        {games.data[0].featured_linux.map((app, index) => {
-            return (
-              <Wrapper>
-                <Container key={index}>
-                  <h1>{app.name}</h1>
-                  <img src={app.header_image} alt="logo" />
-                  <p>
-                    Price: {app.final_price / 100} {app.currency}
-                  </p>
-                </Container>
-              </Wrapper>
-            );
+const FeaturedGamesMac = () => {
+  const { games } = useContext(ApplicationContext);
+  return (
+    games !== null && (
+      <Main>
+        {games.data[0].featured_mac.map((app, index) => {
+          return (
+            <Wrapper>
+              <Container key={index}>
+                <h1>{app.name}</h1>
+                <img src={app.header_image} alt="logo" />
+                <p>
+                  Price: {app.final_price / 100} {app.currency}
+                </p>
+              </Container>
+            </Wrapper>
+          );
         })}
-        </Main>
+      </Main>
     )
+  );
 };
 
 const Main = styled.div`
@@ -36,17 +39,16 @@ const Wrapper = styled.div`
   flex-direction: row;
   justify-content: space-evenly;
   align-items: start;
-  color:white;
+  color: white;
   scroll-behavior: smooth;
 `;
 
 const Container = styled.div`
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #1E1E1E;
+  background-color: #1e1e1e;
   color: lightblue;
   width: 100%;
   border: 1px solid lightblue;
@@ -55,10 +57,9 @@ const Container = styled.div`
 
   transition-timing-function: ease-in;
   transition: 0.3s;
-  &:hover{
+  &:hover {
     transform: scale(1.1);
   }
 `;
 
-
-export default  FeaturedGamesLinux;
+export default FeaturedGamesMac;

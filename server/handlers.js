@@ -1,7 +1,7 @@
 require("dotenv").config({ path: "../.env" });
 const {STEAM_KEY} = process.env;
 
-const { MongoClient } = require("mongodb");
+const { MongoClient, ObjectId } = require("mongodb");
 
 require("dotenv").config();
 const { MONGO_URI } = process.env;
@@ -180,7 +180,61 @@ const getGames = async (req, res) => {
 };
 
 
+const commentPost = async (req, res) => {
+   // Connect to MongoDB database
+   const client = new MongoClient(MONGO_URI, option);
+   await client.connect();
+   const db = client.db();
+ 
+   const {username, comment} = req.body;
 
-module.exports = { getGame, register, login, getApps, getGames };
+  try{
+    const response = await db.collection("comments").insertOne({
+      username,
+      comment
+    })
+    console.log("Comment Added successfully", response);
+    res.status(200).json({ status: 200, message: "success" })
+  } catch (error) {
+    console.log(error);
+    return res.json({status: 'error'})
+  }
+}
+
+const getAllComments = async (req, res) => {
+  const client = new MongoClient(MONGO_URI, option);
+  await client.connect();
+  const db = client.db();
+
+  try{
+    const data = await db.collection('comments').find().toArray();
+  res.status(200).json({ status: 200, data: data, message: "success" });
+  } catch{
+    res.status(500).json({ status: 500, message: "server error" });
+  } finally {
+    client.close();
+  }
+};
+
+const getAllUsers = async (req, res) => {
+  const client = new MongoClient(MONGO_URI, option);
+  await client.connect();
+  const db = client.db();
+
+  try{
+    const data = await db.collection('users').find().toArray();
+  res.status(200).json({ status: 200, data: data, message: "success" });
+  } catch{
+    res.status(500).json({ status: 500, message: "server error" });
+  } finally {
+    client.close();
+  }
+};
+
+
+
+
+
+module.exports = { getGame, register, login, getApps, getGames, getAllComments, commentPost, getAllUsers };
 
 

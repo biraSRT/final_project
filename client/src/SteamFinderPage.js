@@ -1,31 +1,45 @@
 import { useContext } from "react";
 import { ApplicationContext } from "./ApplicationContext";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Spinner from "./Spinner";
 
 
 const SteamFinderPage = () => {
+    const navigate = useNavigate();
     const { games } = useContext(ApplicationContext);
 
-    return((games !== null) ? <div>
-        <Link to="/linux" >Linux</Link>
+    const gameClick = (index) => {
+        navigate(`/win/${index}`);
+    }
+
+    return((games !== null) ? <Main>
         {games.data[0].featured_win.map((app, index) => {
             return (
               <Wrapper>
-                <Container key={index}>
+                <Container key={index} onClick={() => gameClick(index) }>
                   <h1>{app.name}</h1>
                   <img src={app.header_image} alt="logo" />
                   <p>
-                    Current Price: {app.final_price / 100} {app.currency}
+                   Price: {app.final_price / 100} {app.currency}
                   </p>
                 </Container>
               </Wrapper>
             );
         })}
-        </div> 
-        : <div>Loading...</div>
+        </Main> 
+        : <Spinner />
     )
 };
+
+const Main = styled.div`
+    background-color: #1e1e1e;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+`;
 
 const Wrapper = styled.div`
     background-color: #1e1e1e;
@@ -38,17 +52,16 @@ const Wrapper = styled.div`
 `;
 
 const Container = styled.div`
-
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: #1E1E1E;
     color: lightblue;
-    width: 30%;
+    width: 100%;
     border: 1px solid lightblue;
-    padding-bottom: 2rem;
-    margin: 2rem;
+    padding: 1rem;
+    margin: 1rem;
     border-radius: 5px;
 
     transition-timing-function: ease-in;

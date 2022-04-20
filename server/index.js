@@ -11,6 +11,9 @@ const {
     login,
     getApps,
     getGames,
+    commentPost,
+    getAllComments,
+    getAllUsers,
 } = require("./handlers");
 
 const PORT = 8000;
@@ -28,6 +31,9 @@ app.get("/api/apps", getApps);
 app.get("/api/games", getGames);
 app.post("/api/register", register);
 app.post("/api/login", login);
+app.post("/api/comment", commentPost);
+app.get("/api/comments", getAllComments);
+app.get("/api/users", getAllUsers );
 
 
 app.listen(PORT, () => console.log('Listening on port: ', PORT));
