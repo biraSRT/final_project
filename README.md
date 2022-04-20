@@ -7,10 +7,10 @@ users can also on the featured games and view them on steam.
 
 # Showcase
 
-<img width="1432" alt="Screen Shot" src="https://imgur.com/a/EdcQXo3">
+![Imgur Image](http://i.imgur.com/zTONrOD.jpg)
 
 
-# How to this react app
+# How to run client
 
 ### cd client
 #### yarn start
