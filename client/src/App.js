@@ -37,14 +37,16 @@ const App = () => {
         <Route path="/" element={ <MainPage/> }/>
         <Route path="/signup" element={ <SignUp/> }/>
         <Route path="/signin" element={ <SignIn/> }/>
-        <Route path="/linux" element={ <FeaturedGamesLinux/> }/>
-        <Route path="/mac" element={ <FeaturedGamesMac/> }/>
-        <Route path="/win/:gameNumber" element={ <IndividualGame/> }/>
-        <Route path="/linux/:gameNumberLinux" element={ <IndividualGameLinux/> }/>
-        <Route path="/mac/:gameNumberMac" element={ <IndividualGameMac/> }/>
-        <Route path="/comments" element={ <Comments/> }/>
-        <Route path="/users" element={ <Users/> }/>
-        <Route path="/users/:uid" element={ <IndividualUsers/> }/>
+
+        
+        {isLoggedIn && <Route path="/linux" element={ <FeaturedGamesLinux/> }/>}
+        {isLoggedIn && <Route path="/mac" element={ <FeaturedGamesMac/> }/>}
+        {isLoggedIn && <Route path="/win/:gameNumber" element={ <IndividualGame/> }/>}
+        {isLoggedIn && <Route path="/linux/:gameNumberLinux" element={ <IndividualGameLinux/> }/>}
+        {isLoggedIn && <Route path="/mac/:gameNumberMac" element={ <IndividualGameMac/> }/>}
+        {isLoggedIn && <Route path="/comments" element={ <Comments/> }/>}
+        {isLoggedIn && <Route path="/users" element={ <Users/> }/>}
+        {isLoggedIn && <Route path="/users/:uid" element={ <IndividualUsers/> }/>}
       </Routes>
 
       <Footer />
