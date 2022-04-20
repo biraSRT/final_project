@@ -5,6 +5,10 @@
 steamfinder is app that users can use to view the daily featured steam games
 users can also on the featured games and view them on steam.
 
+# Showcase
+
+![alt text](https://imgur.com/GSjYUjD)
+
 
 # How to this react app
 
