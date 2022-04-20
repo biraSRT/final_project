@@ -3,7 +3,7 @@
 
 # Description
 
-Steamfinder is an app that users can use to view the daily featured steam games.
+Steamfinder is an app that users can use to view the daily featured steam games for Windows, Mac and Linux.
 Users can also comment on or about the featured games of the day.
 
 # Showcase
