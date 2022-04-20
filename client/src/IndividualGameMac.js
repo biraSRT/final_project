@@ -5,22 +5,22 @@ import { useParams } from "react-router-dom";
 import { AiFillStar } from "react-icons/ai";
 import Spinner from "./Spinner";
 
-const IndividualGame = () => {
+const IndividualGameMac = () => {
     const { games } = useContext(ApplicationContext);
-    const { gameNumber } = useParams();
+    const { gameNumberMac } = useParams();
     window.scrollTo(0, 0);
 
     return (games !== null) ? (
       <Main>
-        <h1>{games.data[0].featured_win[gameNumber].name}</h1>
-        <img src={games.data[0].featured_win[gameNumber].header_image} alt="logo" />
-        {(games.data[0].featured_win[gameNumber].final_price !== 0) ?<p>
-                   Price: {games.data[0].featured_win[gameNumber].final_price / 100} {games.data[0].featured_win[gameNumber].currency}
+        <h1>{games.data[0].featured_mac[gameNumberMac].name}</h1>
+        <img src={games.data[0].featured_mac[gameNumberMac].header_image} alt="logo" />
+        {(games.data[0].featured_mac[gameNumberMac].final_price !== 0) ?<p>
+                   Price: {games.data[0].featured_mac[gameNumberMac].final_price / 100} {games.data[0].featured_mac[gameNumberMac].currency}
                   </p>
                   : <p>Free</p>
                 }
         <Section>
-        <a href={`https://store.steampowered.com/app/${games.data[0].featured_win[gameNumber].id}/`} target="_blank">Visit Steam</a>
+        <a href={`https://store.steampowered.com/app/${games.data[0].featured_mac[gameNumberMac].id}/`} target="_blank">Visit Steam</a>
         </Section>
       </Main>
     ) : (
@@ -72,4 +72,4 @@ const Section = styled.div`
   }
 `;
 
-export default IndividualGame;
+export default IndividualGameMac;

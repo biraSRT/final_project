@@ -8,6 +8,7 @@ const Header = () => {
     const { isLoggedIn, SetIsLoggedIn, username } = useContext(ApplicationContext);
 
     const logOut = () => {
+        window.location.href = "/";
         SetIsLoggedIn(false);
     };
 
@@ -29,7 +30,7 @@ const Header = () => {
            </Container>
 
            :  <Container>
-               <p>{`Logged In as ${username}`}</p>
+               <p>{`Welcome, ${username}`}</p>
                <button onClick={logOut}><BiLogOut size="1.1rem"/>{`Log Out`}</button>
            </Container>
            } 

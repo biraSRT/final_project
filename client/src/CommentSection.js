@@ -1,4 +1,4 @@
-import React, {useState, useRef } from 'react';
+import React from 'react';
 import {Typography, TextField, Button } from '@material-ui/core';
 import { useContext } from "react";
 import { ApplicationContext } from "./ApplicationContext";

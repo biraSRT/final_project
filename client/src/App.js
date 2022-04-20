@@ -20,6 +20,8 @@ import { useContext } from "react";
 import Comments from "./Comments";
 import Users from "./Users";
 import IndividualUsers from "./IndividualUsers";
+import IndividualGameLinux from "./IndividualGameLinux";
+import IndividualGameMac from "./IndividualGameMac";
 
 const App = () => {
 
@@ -38,6 +40,8 @@ const App = () => {
         <Route path="/linux" element={ <FeaturedGamesLinux/> }/>
         <Route path="/mac" element={ <FeaturedGamesMac/> }/>
         <Route path="/win/:gameNumber" element={ <IndividualGame/> }/>
+        <Route path="/linux/:gameNumberLinux" element={ <IndividualGameLinux/> }/>
+        <Route path="/mac/:gameNumberMac" element={ <IndividualGameMac/> }/>
         <Route path="/comments" element={ <Comments/> }/>
         <Route path="/users" element={ <Users/> }/>
         <Route path="/users/:uid" element={ <IndividualUsers/> }/>

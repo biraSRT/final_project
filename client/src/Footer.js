@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
     return (
         <Wrapper>
-            <Container to="/">
+            <Container to="/" >
                 <Title1>Steam</Title1><Title2>Finder</Title2>
             </Container>
             <p>Copyright © 2022 Logo. All Rights Reserved</p>
