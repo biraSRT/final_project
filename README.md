@@ -7,7 +7,7 @@ users can also on the featured games and view them on steam.
 
 # Showcase
 
-![alt text](https://imgur.com/GSjYUjD)
+<img width="1432" alt="Screen Shot" src="https://imgur.com/GSjYUjD">
 
 
 # How to this react app
