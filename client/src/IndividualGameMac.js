@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { useContext } from "react";
 import { ApplicationContext } from "./ApplicationContext";
 import { useParams } from "react-router-dom";
-import { AiFillStar } from "react-icons/ai";
 import Spinner from "./Spinner";
 
 const IndividualGameMac = () => {
@@ -20,7 +19,7 @@ const IndividualGameMac = () => {
                   : <p>Free</p>
                 }
         <Section>
-        <a href={`https://store.steampowered.com/app/${games.data[0].featured_mac[gameNumberMac].id}/`} target="_blank">Visit Steam</a>
+        <a href={`https://store.steampowered.com/app/${games.data[0].featured_mac[gameNumberMac].id}/`} target="_blank" rel="noreferrer">Visit Steam</a>
         </Section>
       </Main>
     ) : (

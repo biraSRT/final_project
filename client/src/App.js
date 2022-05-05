@@ -25,7 +25,7 @@ import IndividualGameMac from "./IndividualGameMac";
 
 const App = () => {
 
-  const { isLoggedIn, games } = useContext(ApplicationContext);
+  const { isLoggedIn } = useContext(ApplicationContext);
 
   return (
     <Router>

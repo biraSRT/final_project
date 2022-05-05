@@ -5,8 +5,6 @@ const SecondHeader = () => {
     return (<Main>
         <Container>
             <Links to = "/comments" >Comments</Links>
-            {/* <h1>Today's Featured Games:</h1> */}
-            {/* <h3>Platform: Windows</h3> */}
         </Container>
         <Container>
             <Links to = "/users" >Users</Links>
