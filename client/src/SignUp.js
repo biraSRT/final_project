@@ -12,7 +12,7 @@ const SignUp = () => {
             return;
         }
 
-        const result = await fetch('/api/register', {
+        const result = await fetch('https://steamfinderapp2.herokuapp.com/api/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

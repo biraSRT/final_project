@@ -11,7 +11,7 @@ const SignIn = () => {
       const username = document.getElementById("username").value;
       const password = document.getElementById("password").value;
 
-      const result = await fetch("/api/login", {
+      const result = await fetch("https://steamfinderapp2.herokuapp.com/api/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
