@@ -13,16 +13,20 @@ const SteamFinderPage = () => {
         navigate(`/win/${index}`);
     }
 
+    console.log(games);
     return((games !== null) ? <Main>
         {games.data[0].featured_win.map((app, index) => {
             return (
               <Wrapper>
                 <Container key={index} onClick={() => gameClick(index) }>
+                  {app.discounted && <span>{`discount: ${app.discount_percent}%`}</span>}
                   <h1>{app.name}</h1>
                   <img src={app.header_image} alt="logo" />
-                  <p>
+                  {(app.final_price !== 0) ?<p>
                    Price: {app.final_price / 100} {app.currency}
                   </p>
+                  : <p>Free</p>
+                }
                 </Container>
               </Wrapper>
             );
@@ -52,23 +56,33 @@ const Wrapper = styled.div`
 `;
 
 const Container = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #1E1E1E;
-    color: lightblue;
-    width: 100%;
-    border: 1px solid lightblue;
-    padding: 1rem;
-    margin: 1rem;
-    border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #1e1e1e;
+  color: lightblue;
+  width: 100%;
+  border: 1px solid lightblue;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 5px;
 
-    transition-timing-function: ease-in;
-    transition: 0.3s;
-    &:hover{
-        transform: scale(1.1);
-    }
+  span {
+    font-size: 17px;
+    width: 50%;
+    position: relative;
+    background: green;
+    color: #fff;
+    text-align: center;
+    border-right-color: transparent;
+  }
+
+  transition-timing-function: ease-in;
+  transition: 0.3s;
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 

@@ -169,6 +169,7 @@ const getGames = async (req, res) => {
     await steam.getFeaturedGames().then(games => {
       newArray.push(games);
    });
+   
   
    res.status(200).json({ status: 200, data: newArray, message: "success" })
      

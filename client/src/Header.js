@@ -3,13 +3,26 @@ import { Link } from 'react-router-dom';
 import { BiPen, BiDoorOpen, BiLogOut } from "react-icons/bi";
 import { ApplicationContext } from './ApplicationContext';
 import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
-    const { isLoggedIn, SetIsLoggedIn, username } = useContext(ApplicationContext);
+    const { isLoggedIn, SetIsLoggedIn, username, users } = useContext(ApplicationContext);
+    const navigate = useNavigate();
 
     const logOut = () => {
+        window.location.href = "/";
         SetIsLoggedIn(false);
     };
+
+    const handleClick = (username) => {
+        //find user with username
+        users.map((user) => {
+          if (user.username === username) {
+              let i = users.indexOf(user);
+            navigate(`/users/${i}`);
+          }
+        });
+      };
 
     return(
         <Wrapper>
@@ -29,7 +42,7 @@ const Header = () => {
            </Container>
 
            :  <Container>
-               <p>{`Logged In as ${username}`}</p>
+               <p onClick={() => handleClick(username) }>{`Welcome, ${username}`}</p>
                <button onClick={logOut}><BiLogOut size="1.1rem"/>{`Log Out`}</button>
            </Container>
            } 
@@ -88,6 +101,11 @@ const Container = styled.div`
     p{
         color: white;
         font-size: 1.5rem;
+
+        &:hover{
+            text-decoration: underline;
+            cursor: pointer;
+        }
     }
 
     button{

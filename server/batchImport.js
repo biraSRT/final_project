@@ -22,20 +22,18 @@ const batchImport = async () => {
     let applications = [];
     let newArray = [];
 
-   await steam.getAppList().then(apps => {
+//    await steam.getAppList().then(apps => {
         
-        apps.forEach(app => {
-            applications.push(app);
-        });
-        console.log(applications);
-        console.log("import successful");
-    });
+//         apps.forEach(app => {
+//             applications.push(app);
+//         });
+//         console.log(applications);
+//         console.log("import successful");
+//     });
 
-    await steam.getFeaturedGames().then(games => {
-        newArray.push(games);
+    await steam.getGameNews(730).then(news => {
 
-        console.log(newArray);
-        console.log("import successful");
+        console.log(news[0]);
     });
     
 
@@ -43,7 +41,6 @@ const batchImport = async () => {
         // Import items to "items" collection
         //await db.collection("applications").insertMany(applications);
         //await db.collection("ftGames").insertMany(newArray);
-        console.log(newArray);
         
         
     } catch (err) {

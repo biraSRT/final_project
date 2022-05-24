@@ -5,16 +5,48 @@ const SecondHeader = () => {
     return (<Main>
         <Container>
             <Links to = "/comments" >Comments</Links>
-            {/* <h1>Today's Featured Games:</h1> */}
-            {/* <h3>Platform: Windows</h3> */}
         </Container>
         <Container>
             <Links to = "/users" >Users</Links>
         </Container>
+        <DropDown>
+            Categories
+            <DropDownContent className="dropdown-content">
+            <Links to = "/" >Windows</Links>
+            <Links to = "/linux" >Linux</Links>
+            <Links to = "/mac" >Mac</Links>
+            </DropDownContent>
+        </DropDown>
     </Main>
         
     )
 };
+
+
+const DropDown = styled.div`
+    position: relative;
+    display: inline-block;
+    color:lightblue;
+    font-size: 1.2rem;
+    border: 1px solid lightblue;
+    border-radius: 8px;
+    padding: 1rem;
+
+    &:hover {
+        .dropdown-content {
+            display: block;
+        }
+    }
+
+`;
+
+const DropDownContent = styled.div`
+    display: none;
+  position: absolute;
+  background-color: #1e1e1e;
+  min-width: 160px;
+  z-index: 1;
+`;
 
 const Main = styled.div`
     display: flex;
@@ -47,6 +79,10 @@ const Links = styled(Link)`
   border: 1px solid lightblue;
   padding: 1rem;
   border-radius: 8px;
+
+  &:active{
+    background-color: lightblue;
+  }
 
   transition-timing-function: ease-in;
   transition: 0.3s;

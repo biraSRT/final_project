@@ -4,7 +4,13 @@ const SignUp = () => {
         ev.preventDefault();
         const username = document.getElementById("username").value;
         const password = document.getElementById("password").value;
+        const confirmPassword = document.getElementById("confirmpassword").value;
         const email = document.getElementById("email").value; 
+
+        if (password !== confirmPassword) {
+            alert("Passwords do not match");
+            return;
+        }
 
         const result = await fetch('/api/register', {
             method: 'POST',
@@ -21,6 +27,7 @@ const SignUp = () => {
         //error alert
         if(result.status === 200){
            alert("account created successfully")
+           window.location.href = "/signin";
         } else {
             alert(result.error);
         }
@@ -33,6 +40,7 @@ const SignUp = () => {
                 <input type="text" autoComplete="off" id="username" placeholder="Username"/>
                 <input type="text"  autoComplete="off"  id="email" placeholder="Email"/>
                 <input type="password"  autoComplete="off"  id="password" placeholder="Password"/>
+                <input type="password"  autoComplete="off"  id="confirmpassword" placeholder="Confirm Password"/>
                 <button onClick={Register}>Create Account</button>
             </Form>
         </Wrapper>
