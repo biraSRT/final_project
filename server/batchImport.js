@@ -1,6 +1,6 @@
 const { MongoClient } = require('mongodb');
 
-require("dotenv").config({ path: "../.env" });
+require("dotenv").config({ path: "./.env" });
 const { MONGO_URI  } = process.env;
 
 const options = {
@@ -8,7 +8,8 @@ const options = {
     useUnifiedTopology: true,
 };
 
-require("dotenv").config({ path: "../.env" });
+require("dotenv").config({ path: "./.env" });
+
 const {STEAM_KEY} = process.env;
 
 //fetching data from steam api

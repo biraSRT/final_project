@@ -39,25 +39,25 @@ export const ApplicationProvider = ({ children }) => {
 
     //fetch here
     useEffect(() => {
-      fetch("http://localhost:8000/api/apps")
+      fetch("https://steamfinderapp2.herokuapp.com/api/apps")
         .then((response) => response.json())
         .then((data) => setApps(data.data));
     }, []);
 
     useEffect(() => {
-      fetch("http://localhost:8000/api/games")
+      fetch("https://steamfinderapp2.herokuapp.com/api/games")
         .then((response) => response.json())
         .then((data) => setGames(data));
     }, []);
 
     useEffect(() => {
-      fetch("http://localhost:8000/api/comments")
+      fetch("https://steamfinderapp2.herokuapp.com/api/comments")
         .then((response) => response.json())
         .then((data) => setComments(data.data));
     }, []);
 
     useEffect(() => {
-      fetch("http://localhost:8000/api/users")
+      fetch("https://steamfinderapp2.herokuapp.com/api/users")
         .then((response) => response.json())
         .then((data) => setUsers(data.data));
     }, []);

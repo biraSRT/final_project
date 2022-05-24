@@ -1,4 +1,4 @@
-require("dotenv").config({ path: "../.env" });
+require("dotenv").config({ path: "./.env" });
 const {STEAM_KEY} = process.env;
 
 const { MongoClient, ObjectId } = require("mongodb");
@@ -169,7 +169,7 @@ const getGames = async (req, res) => {
     await steam.getFeaturedGames().then(games => {
       newArray.push(games);
    });
-   
+
   
    res.status(200).json({ status: 200, data: newArray, message: "success" })
      
