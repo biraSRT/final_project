@@ -8,7 +8,7 @@ const Footer = () => {
             <Container to="/" >
                 <Title1>Steam</Title1><Title2>Finder</Title2>
             </Container>
-            <p>Copyright © 2022 Logo. All Rights Reserved</p>
+            <p>Copyright © 2022 Logo. All rights reserved</p>
             <Container2>
                 <h2> <AiFillInstagram size="2rem"/> </h2>
                 <h2> <AiFillTwitterCircle size="2rem"/> </h2>
@@ -34,7 +34,10 @@ const Wrapper = styled.div`
     justify-content: space-evenly;
 
     p{
-        font-size: 1rem;
+        font-size: 0.75rem;
+        padding-left: 3%;
+        padding-right: 3%;
+        height: 50%;
     }
 `;
 

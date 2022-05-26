@@ -35,7 +35,7 @@ const Container = styled.div`
   justify-content: center;
   background-color: #1e1e1e;
   color: lightblue;
-  width: 25%;
+  width: 70%;
   border-radius: 5px;
   border: 1px solid lightblue;
   transition-timing-function: ease-in;
@@ -47,8 +47,7 @@ const Container = styled.div`
   }
 
   img{
-    width: 50%;
-    height: 50%;
+    width: 100%;
   }
 `;
 

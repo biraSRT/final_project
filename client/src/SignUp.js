@@ -40,7 +40,7 @@ const SignUp = () => {
                 <input type="text" autoComplete="off" id="username" placeholder="Username"/>
                 <input type="text"  autoComplete="off"  id="email" placeholder="Email"/>
                 <input type="password"  autoComplete="off"  id="password" placeholder="Password"/>
-                <input type="password"  autoComplete="off"  id="confirmpassword" placeholder="Confirm Password"/>
+                <input type="password"  autoComplete="off"  id="confirmpassword" placeholder="Confirm"/>
                 <button onClick={Register}>Create Account</button>
             </Form>
         </Wrapper>
@@ -57,51 +57,54 @@ const Wrapper = styled.div`
 `;
 
 const Form = styled.form`
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: space-evenly;
-    align-items: center;
-    height: 60%;
-    width: 90%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 60%;
+  width: 90%;
 
-    h1{
-        color: lightblue;
-        font-size: 3rem;
+  h1 {
+    color: lightblue;
+    font-size: 3rem;
+  }
+  input {
+    width: 20%;
+    height: 10%;
+    margin: 1rem;
+    
+    border-radius: 5px;
+    &::placeholder {
+      color: black;
     }
-    input{
-        width: 20%;
-        height: 10%;
-        margin: 1rem;
-        border-radius: 5px;
-        &::placeholder{
-            color: black;
-        }
-        border: 1px solid gray;
-        &:focus{
-            outline: none;
-            border-color: lightblue;
-            box-shadow: 0 0 15px #719ECE;
-        }
+    border: 1px solid gray;
+    &:focus {
+      outline: none;
+      border-color: lightblue;
+      box-shadow: 0 0 15px #719ece;
     }
+  }
 
-    button{
-        background-color: lightblue;
-        width: 20%;
-        height: 10%;
-        margin: 1.5rem;
-        border: none;
-        color: white;
-        font-size: 1rem;
-        border-radius: 5px;
-        transition-timing-function: ease-in;
-        transition: 0.2s;
-        &:hover{
-            transform: scale(1.2);
-        }
-
+  input::placeholder {
+      font-size: 0.7rem;
     }
 
+  button {
+    background-color: lightblue;
+    width: 20%;
+    height: 10%;
+    margin: 1.5rem;
+    border: none;
+    color: white;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    transition-timing-function: ease-in;
+    transition: 0.2s;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
 `;
 
 export default SignUp;

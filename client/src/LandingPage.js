@@ -19,6 +19,7 @@ const Wrapper = styled.div`
     justify-content:center;
     align-items:center;
     width:100%;
+    height: 100vh;
 
     overflow: hidden;
 `;
@@ -42,7 +43,7 @@ const Welcome = styled.div`
     align-items: center;
     h1{
         color:white;
-        font-size:8rem;
+        font-size:2rem;
         overflow: hidden; /* Ensures the content is not revealed until the animation */
         border-right: .05rem solid lightblue; /* The typwriter cursor */
         white-space: nowrap; /* Keeps the content on a single line */
@@ -54,7 +55,7 @@ const Welcome = styled.div`
 
     @keyframes typing {
         from { width: 0 }
-        to { width: 70% }
+        to { width: 18% }
     }
 
     /* The typewriter cursor effect */
@@ -67,11 +68,11 @@ const Welcome = styled.div`
 const StyledLink = styled(Link)`
     background-color: lightblue;
     color: white;
-    font-size: 3rem;
-    padding: 10px;
+    font-size: 2rem;
+    padding: 5px;
     border: none;
     border-radius: 5px;
-    margin: 10px;
+    margin: 5px;
     transition-timing-function: ease-in;
     transition: 0.2s;
     cursor: pointer;

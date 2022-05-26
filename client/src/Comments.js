@@ -19,6 +19,7 @@ const Main = styled.div`
     color: lightblue;
     background-color: #1e1e1e;
     height: 65vh;
+    width: 100%;
 
     p{
         font-size: 1.2rem;

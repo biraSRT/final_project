@@ -62,7 +62,7 @@ const Container = styled.div`
   justify-content: center;
   background-color: #1e1e1e;
   color: lightblue;
-  width: 100%;
+  width: 60%;
   border: 1px solid lightblue;
   padding: 1rem;
   margin: 1rem;
@@ -82,6 +82,10 @@ const Container = styled.div`
   transition: 0.3s;
   &:hover {
     transform: scale(1.1);
+  }
+
+  img{
+    width: 100%;
   }
 `;
 

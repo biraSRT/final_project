@@ -36,6 +36,10 @@ const Main = styled.div`
     align-items: center;
     color: lightblue;
     height: 100vh;
+
+    img{
+      width: 50%;
+    }
 `;
 
 const Section = styled.div`

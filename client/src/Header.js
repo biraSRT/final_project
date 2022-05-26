@@ -96,7 +96,7 @@ const StyledLink = styled(Link)`
 const Container = styled.div`
     display:flex;
     flex-direction: row;
-    gap: 40px;
+    gap: 20px;
 
     p{
         color: white;
