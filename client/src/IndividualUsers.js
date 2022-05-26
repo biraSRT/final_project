@@ -28,7 +28,7 @@ const Wrapper = styled.div`
     width: 100%;
 
     img{
-        width: 80%;
+        width: 30%;
     }
 `;
 
