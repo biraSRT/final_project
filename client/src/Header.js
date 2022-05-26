@@ -100,7 +100,8 @@ const Container = styled.div`
 
     p{
         color: white;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
+        padding-left: 20px;
 
         &:hover{
             text-decoration: underline;

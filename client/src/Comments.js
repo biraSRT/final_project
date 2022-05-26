@@ -4,7 +4,6 @@ import styled from "styled-components";
 const Comments = () => {
     return (
        <Main>
-            <p>What do you think about today's featured games?</p>
               <CommentSection />
        </Main>
     )
@@ -20,9 +19,12 @@ const Main = styled.div`
     background-color: #1e1e1e;
     height: 65vh;
     width: 100%;
+    height: 100vh;
 
     p{
-        font-size: 1.2rem;
+        font-size: 0.9rem;
+        margin-left: 20px;
+        
     }
 `;
 

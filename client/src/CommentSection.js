@@ -45,6 +45,7 @@ const CommentSection = () => {
 
     return (
         <div>
+          <p>What do you think about today's featured games?</p>
             <OuterContainer>
                 <InnerContainer>
                     <Typography variant="h6" gutterBottom>Comments</Typography>
@@ -80,6 +81,8 @@ const CommentSection = () => {
 const OuterContainer = styled.div`
     display: flex;
     justify-content: space-between; 
+    width: 60%;
+    margin-left: 1rem;
 `;
 
 const InnerContainer = styled.div`
