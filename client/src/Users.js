@@ -35,7 +35,7 @@ const Container = styled.div`
   justify-content: center;
   background-color: #1e1e1e;
   color: lightblue;
-  width: 60%;
+  width: 45%;
   border-radius: 5px;
   border: 1px solid lightblue;
   transition-timing-function: ease-in;
@@ -48,6 +48,14 @@ const Container = styled.div`
 
   img{
     width: 50%;
+  }
+
+  h1 {
+    font-size: 0.85rem;
+  }
+
+  p{
+      font-size: 0.85rem;
   }
 `;
 
